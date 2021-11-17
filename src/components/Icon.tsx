@@ -8,6 +8,7 @@ try{
     importAll(require.context('icons',true,/\.svg$/))
 }catch (error) {
     console.log(error)
+
 }
 type Props ={
     name:string
