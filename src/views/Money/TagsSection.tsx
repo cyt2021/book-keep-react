@@ -38,21 +38,23 @@ const Wrapper = styled.section`
     margin-top: 8px;
   }
 `
-type Props={value:number[],
-           onChange: (selected:number[])=> void }
+type Props = {
+    value: number[],
+    onChange: (selected: number[]) => void
+}
 const TagsSection: React.FC<Props> = (props) => {
     const {tags, setTags} = useTags()
-   const selectedTagIds=props.value
+    const selectedTagIds = props.value
     const onAddTag = () => {
         const tagName = window.prompt('新标签的名称为')
         if (tagName !== null) {
-            setTags([...tags, {id:createId() ,name:tagName}])
+            setTags([...tags, {id: createId(), name: tagName}])
         }
     }
     const onToggleTag = (tagId: number) => {
         const index = selectedTagIds.indexOf(tagId);
         if (index >= 0) {
-           props.onChange(selectedTagIds.filter(t => t !== tagId))
+            props.onChange(selectedTagIds.filter(t => t !== tagId))
         } else {
             props.onChange([...selectedTagIds, tagId])
         }

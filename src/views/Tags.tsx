@@ -13,7 +13,8 @@ const TagList = styled.ol`
     border-bottom: 1px solid #d5d5d9;
     line-height: 20px;
     margin-left: 16px;
-    > a{
+
+    > a {
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -45,11 +46,10 @@ function Tags() {
             <TagList>
                 {tags.map(tag =>
                     <li key={tag.id}>
-                        <Link to={'/tags/'+tag}>
-                            <span className='onLine'>{tag.name}</span>
+                        <Link to={'/tags/' + tag.id}>
+                            <span className='onLine'>{tag.id}:{tag.name}</span>
                             <Icon name='right'/>
                         </Link>
-
                     </li>)}
             </TagList>
             <Center>
