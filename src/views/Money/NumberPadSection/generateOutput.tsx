@@ -17,7 +17,7 @@ const generateOutput = (text: string, output = '0') => {
             }
 
         case '.':
-            debugger
+
             if (output.indexOf('.') >= 0) {
                 return output
             } else {
