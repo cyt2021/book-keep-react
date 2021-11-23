@@ -26,6 +26,7 @@ type Params = {
 }
 const Tag: React.FC = () => {
     const {findTag, updateTag, deleteTag} = useTags()
+
     let {id: idString} = useParams<Params>()
     const tag = findTag(parseInt(idString))
     const tagContent = (tag: { id: number; name: string }) =>

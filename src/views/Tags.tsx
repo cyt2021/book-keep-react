@@ -26,21 +26,21 @@ const TagList = styled.ol`
   }
 `
 function Tags() {
-    const {tags} = useTags()
+    const {tags,AddTag} = useTags()
     return (
         <Layout>
             <TagList>
                 {tags.map(tag =>
                     <li key={tag.id}>
                         <Link to={'/tags/' + tag.id}>
-                            <span className='onLine'>{tag.id}:{tag.name}</span>
+                            <span className='onLine'>{tag.name}</span>
                             <Icon name='right'/>
                         </Link>
                     </li>)}
             </TagList>
             <Center>
                 <Space/>
-                <Button> 新增标签</Button>
+                <Button onClick={AddTag}> 新增标签</Button>
             </Center>
         </Layout>
     )
