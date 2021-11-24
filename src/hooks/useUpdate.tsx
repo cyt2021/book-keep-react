@@ -8,6 +8,6 @@ import {useEffect, useRef} from "react";
     useEffect(() => {
         if (count.current > 1) {
             fn()
-        }
+         }
     }, deps)
 }

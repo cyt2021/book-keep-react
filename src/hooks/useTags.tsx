@@ -1,10 +1,11 @@
-import {useEffect, useRef, useState} from "react";
+import {useEffect, useState} from "react";
 import {createId} from "../lib/createId";
 import {useUpdate} from "./useUpdate";
 
 const useTags = () => {//封装一个自定义Hook,且必须用use命名
     const [tags, setTags] = useState<{ id: number, name: string }[]>([])
     useEffect(() => {
+
         let localTags = JSON.parse(window.localStorage.getItem('tags') || '[]')
         if(localTags.length===0){
             localTags = [
@@ -43,6 +44,10 @@ const useTags = () => {//封装一个自定义Hook,且必须用use命名
             setTags([...tags, {id: createId(), name: tagName}])
         }
     }
+     const getName = (id:number) => {
+       const tag = tags.filter(t=>t.id===id)[0]
+         return tag? tag.name :''
+     }
     return {
         tags,
         setTags,
@@ -50,7 +55,8 @@ const useTags = () => {//封装一个自定义Hook,且必须用use命名
         findTagIndex,
         updateTag,
         deleteTag,
-        AddTag
+        AddTag,
+        getName
     }
 }
 export default useTags
