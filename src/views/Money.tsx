@@ -36,7 +36,7 @@ function Money() {
         alert('保存成功')
         setSelected(defaultFormData)
     }
-    return (<MyLayout>
+    return (<MyLayout scrollTop={9999}>
             {JSON.stringify(selected)}
             <TagsSection value={selected.tagIds} onChange={tagIds => {
                 onChange({tagIds})
