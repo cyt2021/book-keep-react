@@ -9,5 +9,5 @@ import {useEffect, useRef} from "react";
         if (count.current > 1) {
             fn()
          }
-    }, deps)
+    }, [fn,deps])
 }

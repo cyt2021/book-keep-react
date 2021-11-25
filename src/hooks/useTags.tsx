@@ -16,10 +16,10 @@ const useTags = () => {//封装一个自定义Hook,且必须用use命名
             ]
         }
         setTags(localTags)
-    }, [])
+    },[])
     useUpdate(() => {
         window.localStorage.setItem('tags', JSON.stringify(tags))
-    }, [tags])
+    }, tags)
 
     const findTag = (id: number) => tags.filter(tag => tag.id === id)[0]
     const findTagIndex = (id: number) => {
