@@ -23,21 +23,21 @@ const defaultFormData = {
 const CategoryWrapper = styled.div`
   background: #c4c4c4;
 `
+
 function Money() {
     const [selected, setSelected] = useState(defaultFormData
     )
-    const { addRecord} =useRecords()
+    const {addRecord} = useRecords()
     type Selected = typeof selected
     const onChange = (obj: Partial<Selected>) => {
         setSelected({...selected, ...obj})
     }
-    const submit=()=>{
+    const submit = () => {
         addRecord(selected)
         alert('保存成功')
         setSelected(defaultFormData)
     }
     return (<MyLayout scrollTop={9999}>
-            {JSON.stringify(selected)}
             <TagsSection value={selected.tagIds} onChange={tagIds => {
                 onChange({tagIds})
             }}/>
@@ -45,9 +45,9 @@ function Money() {
                 onChange({note})
             }}/>
             <CategoryWrapper>
-            <CategorySection value={selected.category} onChange={category => {
-                onChange({category})
-            }}/>
+                <CategorySection value={selected.category} onChange={category => {
+                    onChange({category})
+                }}/>
             </CategoryWrapper>
             <NumberPadSection value={selected.amount} onChange={amount => {
                 onChange({amount})

@@ -11,6 +11,10 @@ const Main = styled.div`
 
   flex-grow: 1;
   overflow: auto;
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
 `
 type Props = {
     className?: string
@@ -20,10 +24,10 @@ const Layout: React.FC<Props> = (props) => {
     const mainRef = useRef<HTMLDivElement>(null)
     useEffect(() => {
             setTimeout(() => {
-                    if (mainRef.current) {
-                        mainRef.current.scrollTop = props.scrollTop!
-                    }
-                }, 0)
+                if (mainRef.current) {
+                    mainRef.current.scrollTop = props.scrollTop!
+                }
+            }, 0)
         },
         [props.scrollTop])
 
